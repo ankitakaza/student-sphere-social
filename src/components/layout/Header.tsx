@@ -10,7 +10,7 @@ const Header = () => {
   const [isSearchVisible, setIsSearchVisible] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
+    <header className="sticky top-0 z-50 w-full bg-white border-b">
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-2">
           <Sheet>
@@ -34,27 +34,27 @@ const Header = () => {
             <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-semibold">
               U
             </div>
-            <span className="text-xl font-semibold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+            <span className="text-xl font-semibold">
               UniConnect
             </span>
           </Link>
         </div>
         
-        <nav className="hidden md:flex items-center space-x-6">
-          <Link to="/" className="font-medium hover:text-primary transition-colors">Home</Link>
-          <Link to="/clubs" className="font-medium hover:text-primary transition-colors">Clubs</Link>
-          <Link to="/events" className="font-medium hover:text-primary transition-colors">Events</Link>
-          <Link to="/discover" className="font-medium hover:text-primary transition-colors">Discover</Link>
+        <nav className="hidden md:flex items-center space-x-8">
+          <Link to="/" className="font-medium text-black hover:text-primary transition-colors">Home</Link>
+          <Link to="/clubs" className="font-medium text-gray-500 hover:text-primary transition-colors">Clubs</Link>
+          <Link to="/events" className="font-medium text-gray-500 hover:text-primary transition-colors">Events</Link>
+          <Link to="/discover" className="font-medium text-gray-500 hover:text-primary transition-colors">Discover</Link>
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           {isSearchVisible ? (
             <div className="relative animate-fade-in">
-              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
               <input
                 type="search"
                 placeholder="Search..."
-                className="w-[200px] rounded-full bg-secondary/50 px-9 py-2 text-sm outline-none focus:ring-2 focus:ring-primary"
+                className="w-[200px] rounded-full bg-gray-100 px-9 py-2 text-sm outline-none focus:ring-1 focus:ring-primary"
                 autoFocus
                 onBlur={() => setIsSearchVisible(false)}
               />
@@ -69,25 +69,25 @@ const Header = () => {
               </Button>
             </div>
           ) : (
-            <Button variant="ghost" size="icon" onClick={() => setIsSearchVisible(true)}>
+            <Button variant="ghost" size="icon" className="text-gray-500" onClick={() => setIsSearchVisible(true)}>
               <Search className="h-5 w-5" />
               <span className="sr-only">Search</span>
             </Button>
           )}
           
-          <Button variant="ghost" size="icon" className="relative">
+          <Button variant="ghost" size="icon" className="relative text-gray-500">
             <Bell className="h-5 w-5" />
-            <span className="absolute -top-1 -right-1 w-2 h-2 bg-primary rounded-full" />
+            <span className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-primary rounded-full" />
             <span className="sr-only">Notifications</span>
           </Button>
           
-          <Button variant="ghost" size="icon">
+          <Button variant="ghost" size="icon" className="text-gray-500">
             <MessageSquare className="h-5 w-5" />
             <span className="sr-only">Messages</span>
           </Button>
           
           <Link to="/profile">
-            <Avatar className="h-8 w-8 ring-2 ring-primary/20">
+            <Avatar className="h-8 w-8 border-2 border-primary">
               <AvatarImage src="https://picsum.photos/id/100/200" alt="User" />
               <AvatarFallback>
                 <User className="h-4 w-4" />

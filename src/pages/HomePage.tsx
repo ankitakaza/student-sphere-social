@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import Header from "@/components/layout/Header";
 import FilterBar from "@/components/feed/FilterBar";
@@ -97,19 +98,19 @@ const HomePage = () => {
     : posts.filter(post => post.category === activeFilter);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background via-background to-accent/5">
+    <div className="min-h-screen bg-white">
       <Header />
-      <main className="container py-8 px-4 md:px-8">
+      <main className="container py-6 px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="col-span-3 md:col-span-2 space-y-6">
-            <div className="bg-card/50 backdrop-blur-sm rounded-xl border shadow-sm p-4 animate-fade-in">
+          <div className="col-span-3 md:col-span-2 space-y-5">
+            <div className="bg-white rounded-xl border shadow-sm p-3">
               <FilterBar onFilterChange={setActiveFilter} />
             </div>
-            <div className="space-y-6">
+            <div className="space-y-5">
               {filteredPosts.map(post => (
                 <div 
                   key={post.id} 
-                  className="transform transition-all duration-300 hover:scale-[1.01] hover:shadow-lg"
+                  className="transform transition-all duration-300 hover:shadow-md"
                 >
                   <PostCard
                     id={post.id}
@@ -127,22 +128,20 @@ const HomePage = () => {
           </div>
           
           <div className="hidden md:block">
-            <div className="bg-card/50 backdrop-blur-sm rounded-xl border shadow-sm p-6 sticky top-24 animate-fade-in">
-              <h2 className="font-semibold text-xl mb-6 text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-accent">
-                Upcoming Events
-              </h2>
+            <div className="bg-white rounded-xl border shadow-sm p-6 sticky top-24">
+              <h2 className="font-semibold text-xl mb-6">Upcoming Events</h2>
               <div className="space-y-4">
-                <div className="group hover:bg-accent/10 -mx-4 p-4 rounded-lg transition-colors">
+                <div className="group hover:bg-gray-50 -mx-4 p-4 rounded-lg transition-colors">
                   <h3 className="font-medium group-hover:text-primary transition-colors">Winter Carnival</h3>
-                  <p className="text-sm text-muted-foreground mt-1">Dec 15 • Campus Plaza</p>
+                  <p className="text-sm text-gray-500 mt-1">Dec 15 • Campus Plaza</p>
                 </div>
-                <div className="group hover:bg-accent/10 -mx-4 p-4 rounded-lg transition-colors">
+                <div className="group hover:bg-gray-50 -mx-4 p-4 rounded-lg transition-colors">
                   <h3 className="font-medium group-hover:text-primary transition-colors">Hackathon 2025</h3>
-                  <p className="text-sm text-muted-foreground mt-1">Jan 20-22 • Tech Building</p>
+                  <p className="text-sm text-gray-500 mt-1">Jan 20-22 • Tech Building</p>
                 </div>
-                <div className="group hover:bg-accent/10 -mx-4 p-4 rounded-lg transition-colors">
+                <div className="group hover:bg-gray-50 -mx-4 p-4 rounded-lg transition-colors">
                   <h3 className="font-medium group-hover:text-primary transition-colors">Cultural Night</h3>
-                  <p className="text-sm text-muted-foreground mt-1">Feb 5 • Auditorium</p>
+                  <p className="text-sm text-gray-500 mt-1">Feb 5 • Auditorium</p>
                 </div>
               </div>
             </div>

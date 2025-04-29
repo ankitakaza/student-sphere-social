@@ -33,16 +33,21 @@ const FilterBar = ({ onFilterChange }: FilterBarProps) => {
   ];
 
   return (
-    <div className="w-full overflow-x-auto py-2 mb-4">
+    <div className="w-full overflow-x-auto py-3 mb-4">
       <div className="flex items-center gap-2 min-w-max">
-        <div className="hidden md:block">
+        <span className="font-medium text-gray-900 mr-2">Filter by:</span>
+        <div className="hidden md:flex">
           {filters.map(filter => (
             <Button
               key={filter.id}
-              variant={activeFilter === filter.id ? "default" : "ghost"}
+              variant={activeFilter === filter.id ? "default" : "outline"}
               size="sm"
               onClick={() => handleFilterChange(filter.id)}
-              className="rounded-full"
+              className={`rounded-full mr-2 ${
+                activeFilter === filter.id 
+                  ? "bg-primary text-white hover:bg-primary/90" 
+                  : "bg-white border-gray-200 text-gray-600 hover:bg-gray-50"
+              }`}
             >
               {filter.name}
             </Button>
